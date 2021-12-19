@@ -1,40 +1,47 @@
 export function retrieveAuthHeaders(retrieveData) {
-  return () => {
+  return async () => {
     if (!retrieveData) {
-      return null
+      return null;
     }
 
+    const uid = await retrieveData('uid');
+    const accessToken = await retrieveData('access-token');
+    const tokenType = await retrieveData('token-type');
+    const expiry = await retrieveData('expiry');
+    const client = await retrieveData('client');
+
     return {
-      uid: retrieveData('uid'),
-      'access-token': retrieveData('access-token'),
-      'token-type': retrieveData('token-type'),
-      expiry: retrieveData('expiry'),
-      client: retrieveData('client')
-    }
-  }
+      uid,
+      'access-token': accessToken,
+      'token-type': tokenType,
+      expiry,
+      client,
+    };
+  };
 }
 
 export function persistAuthHeaders(persistData) {
-  return (headers) => {
+  return async (headers) => {
     if (!persistData || !headers) {
-      return
+      return;
     }
-    persistData('uid', headers.uid)
-    persistData('access-token', headers['access-token'])
-    persistData('expiry', headers.expiry)
-    persistData('client', headers.client)
-  }
+
+    await persistData('uid', headers.uid);
+    await persistData('access-token', headers['access-token']);
+    await persistData('expiry', headers.expiry);
+    await persistData('client', headers.client);
+  };
 }
 
 export function clearAuthHeaders(removeData) {
   return () => {
     if (!removeData) {
-      return
+      return;
     }
 
-    removeData('uid')
-    removeData('access-token')
-    removeData('expiry')
-    removeData('client')
-  }
+    removeData('uid');
+    removeData('access-token');
+    removeData('expiry');
+    removeData('client');
+  };
 }

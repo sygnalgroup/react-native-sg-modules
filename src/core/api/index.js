@@ -1,7 +1,7 @@
 import axios from 'axios'
 import humps from 'humps'
 
-import { retrieveData } from '../utils/session-storage'
+import { retrieveData } from '../utils/async-storage'
 import { retrieveAuthHeaders } from './auth-headers'
 import evolveResponse from './interceptors/evolve-response'
 import persistHeaders from './interceptors/persist-headers'
