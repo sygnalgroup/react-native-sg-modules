@@ -4,10 +4,11 @@ import createSagaMiddleware, { END } from 'redux-saga';
 import { applyMiddleware, compose, createStore } from 'redux';
 import rootReducers from './rootReducers';
 import rootSaga from './rootSaga';
-import history from './history';
-import { storeMiddlewares } from '../../modules';
+// import history from './history';
+import { storeMiddlewares, isReactNative } from '../../modules';
 
-const reducers = rootReducers(history);
+console.log(' !isReactNative && history', isReactNative)
+const reducers = rootReducers();
 
 const middlewares = [];
 const sagaMiddleware = createSagaMiddleware();
@@ -15,7 +16,7 @@ const composeEnhancers = process.env.REACT_APP_LOGGING_ENABLED
   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   : compose;
 
-const storeAppMiddlewares = storeMiddlewares(history);
+const storeAppMiddlewares = storeMiddlewares();
 if (storeAppMiddlewares.length > 0) {
   storeAppMiddlewares.forEach((el) => {
     middlewares.push(el);

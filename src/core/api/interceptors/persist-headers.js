@@ -1,5 +1,5 @@
 import { persistAuthHeaders } from '../auth-headers'
-import { persistData } from '../../utils/session-storage'
+import { persistData } from '../../utils/async-storage'
 
 const persistHeaders = (response) => {
   if (response.ok) {

@@ -1,12 +1,12 @@
 {
-  "name": "@sygnalgroup/react-sg-modules",
-  "version": "1.2.5",
+  "name": "@sygnalgroup/react-native-sg-modules",
+  "version": "1.0.0",
   "description": "Module to facilitate redux sagas and redux configurations with async request with expo",
   "author": "sygnalgroup",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sygnalgroup/react-sg-modules.git"
+    "url": "git+https://github.com/sygnalgroup/react-native-sg-modules.git"
   },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
@@ -58,13 +58,14 @@
     "dist"
   ],
   "bugs": {
-    "url": "https://github.com/sygnalgroup/react-sg-modules/issues"
+    "url": "https://github.com/sygnalgroup/react-native-sg-modules/issues"
   },
-  "homepage": "https://github.com/sygnalgroup/react-sg-modules#readme",
+  "homepage": "https://github.com/sygnalgroup/react-native-sg-modules#readme",
   "directories": {
     "example": "example"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.13.2",
     "axios": "^0.19.0",
     "history": "^4.10.1",
     "humps": "^2.0.1",

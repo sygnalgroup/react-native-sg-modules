@@ -1,18 +1,18 @@
-# react-sg-modules
+# react-native-sg-modules
 
 > Easy way to handle react-redux with redux-sagas and reduxsauce
 
 With this package you can execute async requests and change the store automatically
 
-[![NPM](https://img.shields.io/badge/react--sg--modules-sygnalgroup-green)](https://www.npmjs.com/package/@sygnalgroup/react-sg-modules) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/badge/react--sg--modules-sygnalgroup-green)](https://www.npmjs.com/package/@sygnalgroup/react-native-sg-modules) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Example crud using the package
-[Crud with react-sg-modules](https://github.com/sygnalgroup/example-use-sg-modules)
+[Crud with react-native-sg-modules](https://github.com/sygnalgroup/example-use-sg-modules)
 
 ## Install
 
 ```bash
-npm install --save react-sg-modules
+npm install --save react-native-sg-modules
 ```
 
 ## Usage/Examples
@@ -21,7 +21,7 @@ If you will use async requests, can set the api base url from in setApiBaseUrl m
 
 ```javascript
 
-import { setApiBaseUrl } from '@sygnalgroup/react-sg-modules';
+import { setApiBaseUrl } from '@sygnalgroup/react-native-sg-modules';
 
 setApiBaseUrl(BASE_URL_API);
 
@@ -31,7 +31,7 @@ So, add the provider
 
 ```javascript
 
-import { Provider } from '@sygnalgroup/react-sg-modules';
+import { Provider } from '@sygnalgroup/react-native-sg-modules';
 
 <Provider>
   <App />
