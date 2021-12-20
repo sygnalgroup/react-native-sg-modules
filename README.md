@@ -53,8 +53,7 @@ export const todoModule = 'todo';
 const actions = {
   getTodoList: {
     api: () => api.get('/todo'),
-    action: { // PARAMS TO EACH REDUCER ACTION
-      start: ['params'], // REQUIRE - CAN BE OMITTED
+    action: { 
       error: ['error'],
       success: ['data'],
     },
@@ -66,7 +65,7 @@ const actions = {
         yield put(Creators.getTodoListError(getErrorMessage(error)));
       }
     },
-    state: { // STATES TO CHANGE IN EACH REDUCER ACTION
+    state: { // STATES TO CHANGE IN REDUCERS ACTIONS
       start: { loadingTodoList: true },
       error: { loadingTodoList: false },
       success: { loadingTodoList: false },
