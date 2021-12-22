@@ -12,7 +12,7 @@ With this package you can execute async requests and change the store automatica
 ## Install
 
 ```bash
-npm install --save react-native-sg-modules
+npm i @sygnalgroup/react-native-sg-modules
 ```
 
 ## Usage/Examples
@@ -27,7 +27,22 @@ setApiBaseUrl(BASE_URL_API);
 
 ```
 
-So, add the provider
+Customize the api auth keys - this keys the lib auto persist in the headers and always update.
+
+DEFAULT - ['uid', 'access-token', 'expiry', 'client'];
+
+If you want costumize the headers keys, you need export authHeaders from modules/index.js in your project
+
+```javascript
+
+const authHeaders = ['uid', 'access-token', 'expiry', 'client'];
+
+export { authHeaders };
+
+```
+
+
+## Provider
 
 ```javascript
 
