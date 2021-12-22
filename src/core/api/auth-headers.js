@@ -1,22 +1,23 @@
+import { authHeaders } from '../../modules';
+
+export const getAuthHeaders = () => {
+  return authHeaders || ['uid', 'access-token', 'expiry', 'client'];
+};
+
 export function retrieveAuthHeaders(retrieveData) {
   return async () => {
     if (!retrieveData) {
       return null;
     }
 
-    const uid = await retrieveData('uid');
-    const accessToken = await retrieveData('access-token');
-    const tokenType = await retrieveData('token-type');
-    const expiry = await retrieveData('expiry');
-    const client = await retrieveData('client');
-
-    return {
-      uid,
-      'access-token': accessToken,
-      'token-type': tokenType,
-      expiry,
-      client,
-    };
+    const headers = {};
+    const headersKeys = getAuthHeaders();
+    await Promise.all(
+      headersKeys.map(async (key) => {
+        headers[key] = await retrieveData(key);
+      }),
+    );
+    return headers;
   };
 }
 
@@ -26,10 +27,12 @@ export function persistAuthHeaders(persistData) {
       return;
     }
 
-    await persistData('uid', headers.uid);
-    await persistData('access-token', headers['access-token']);
-    await persistData('expiry', headers.expiry);
-    await persistData('client', headers.client);
+    const headersKeys = getAuthHeaders();
+    await Promise.all(
+      headersKeys.map(async (key) => {
+        await persistData(key, headers[key]);
+      }),
+    );
   };
 }
 
@@ -39,9 +42,10 @@ export function clearAuthHeaders(removeData) {
       return;
     }
 
-    removeData('uid');
-    removeData('access-token');
-    removeData('expiry');
-    removeData('client');
+    const headersKeys = getAuthHeaders();
+
+    headersKeys.forEach((key) => {
+      removeData(key);
+    });
   };
 }

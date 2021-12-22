@@ -7,7 +7,7 @@ let modules;
 
 let storeMiddlewares = [];
 let connectRouter;
-let isReactNative = false;
+let authHeaders = false;
 
 try {
   // modules = require(`/../../test-app/src/modules/index.js`) // TEST APP
@@ -17,18 +17,17 @@ try {
       // eslint-disable-next-line global-require
       modules = require(`${__dirname}/../../../../src/modules/index.js`);
     } else {
-      isReactNative = true;
       // eslint-disable-next-line global-require
       modules = require(`../../../../src/modules/index.js`);
     }
   } catch {
-    isReactNative = true;
     // eslint-disable-next-line global-require
     modules = require(`../../../../src/modules/index.js`);
   }
 
   storeMiddlewares = modules.storeMiddlewares || (() => []);
   connectRouter = modules.connectRouter || null;
+  authHeaders = modules.authHeaders || null;
 } catch (ex) {
   console.error(
     'Error: Modules not found, please create a file with your modules in {PROJECT_ROOT}/src/modules/index.js ',
@@ -37,7 +36,7 @@ try {
   modules = {};
 }
 
-export { storeMiddlewares, connectRouter, isReactNative };
+export { storeMiddlewares, connectRouter, authHeaders };
 
 const appModules = modules.default || {};
 
