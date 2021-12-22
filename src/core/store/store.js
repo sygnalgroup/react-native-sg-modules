@@ -5,9 +5,8 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import rootReducers from './rootReducers';
 import rootSaga from './rootSaga';
 // import history from './history';
-import { storeMiddlewares, isReactNative } from '../../modules';
+import { storeMiddlewares } from '../../modules';
 
-console.log(' !isReactNative && history', isReactNative)
 const reducers = rootReducers();
 
 const middlewares = [];
