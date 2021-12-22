@@ -1,12 +1,13 @@
+
 # react-native-sg-modules
 
 > Easy way to handle react-redux with redux-sagas and reduxsauce
 
-With this package you can execute async requests and change the store automatically
+With this package you can easily configure and use react-redux with redux-sagas, you can also use the pact without integrating your requests, it can only be used as a store
 
-[![NPM](https://img.shields.io/badge/react--sg--modules-sygnalgroup-green)](https://www.npmjs.com/package/@sygnalgroup/react-native-sg-modules) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/badge/react--sg--modules-sygnalgroup-green)](https://www.npmjs.com/package/@sygnalgroup/react-native-sg-modules)
 
-## Example crud using the package
+## Example use in a crud
 [Crud with react-native-sg-modules](https://github.com/sygnalgroup/example-use-sg-modules)
 
 ## Install
@@ -29,7 +30,7 @@ setApiBaseUrl(BASE_URL_API);
 
 Customize the api auth keys - this keys the lib auto persist in the headers and always update.
 
-DEFAULT - ['uid', 'access-token', 'expiry', 'client'];
+**DEFAULT API AUTH KEYS** - ['uid', 'access-token', 'expiry', 'client'];
 
 If you want costumize the headers keys, you need export authHeaders from modules/index.js in your project
 
@@ -68,8 +69,7 @@ export const todoModule = 'todo';
 const actions = {
   getTodoList: {
     api: () => api.get('/todo'),
-    action: { // PARAMS TO EACH REDUCER ACTION
-      start: ['params'], // REQUIRE - CAN BE OMITTED
+    action: {
       error: ['error'],
       success: ['data'],
     },
@@ -81,7 +81,7 @@ const actions = {
         yield put(Creators.getTodoListError(getErrorMessage(error)));
       }
     },
-    state: { // STATES TO CHANGE IN EACH REDUCER ACTION
+    state: { // STATES TO CHANGE IN REDUCERS ACTIONS
       start: { loadingTodoList: true },
       error: { loadingTodoList: false },
       success: { loadingTodoList: false },
