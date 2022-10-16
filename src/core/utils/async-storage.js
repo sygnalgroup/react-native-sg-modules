@@ -5,6 +5,10 @@ export async function persistData(key, value) {
     return;
   }
 
+  if (value === null || value === undefined) {
+    await AsyncStorage.removeItem(key);
+  }
+
   await AsyncStorage.setItem(key, value);
 }
 
