@@ -30,7 +30,9 @@ export function persistAuthHeaders(persistData) {
     const headersKeys = getAuthHeaders();
     await Promise.all(
       headersKeys.map(async (key) => {
-        await persistData(key, headers[key]);
+        if (headers[key]) {
+          await persistData(key, headers[key]);
+        }
       }),
     );
   };
