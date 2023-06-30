@@ -1,6 +1,6 @@
 {
   "name": "@sygnalgroup/react-native-sg-modules",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "description": "Module to facilitate redux sagas and redux configurations with async request with expo",
   "author": "sygnalgroup",
   "license": "MIT",
