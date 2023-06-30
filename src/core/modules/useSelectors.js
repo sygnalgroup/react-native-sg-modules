@@ -6,7 +6,7 @@ export default (module, prop = null) => {
   const { selectors } = useContext(ReducersProvider);
 
   if (prop) {
-    return useSelector((state) => selectors[module].state(state))[prop];
+    return useSelector((state) => selectors[module].state(state)[prop]);
   }
 
   const valueProp = useSelector((state) => selectors[module].state(state));
