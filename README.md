@@ -149,7 +149,7 @@ import { todoModule } from 'modules/todo';
 
 const TodoList = () => {
   const { dispatch } = useActions();
-  const { data } = useSelectors(todoModule, 'data');
+  const data = useSelectors(todoModule, 'data');
   const load = () => {
     dispatch({
       action: Modules.todo.actions.getTodoList,
