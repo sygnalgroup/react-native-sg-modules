@@ -10757,10 +10757,9 @@ schema-utils@^2.5.0, schema-utils@^2.6.0, schema-utils@^2.6.1, schema-utils@^2.6
     ajv "^6.12.4"
     ajv-keywords "^3.5.2"
 
-seamless-immutable@^7.1.4:
-  version "7.1.4"
-  resolved "https://registry.yarnpkg.com/seamless-immutable/-/seamless-immutable-7.1.4.tgz#6e9536def083ddc4dea0207d722e0e80d0f372f8"
-  integrity sha512-XiUO1QP4ki4E2PHegiGAlu6r82o5A+6tRh7IkGGTVg/h+UoeX4nFBeCGPOhb4CYjvkqsfm/TUtvOMYC1xmV30A==
+"seamless-immutable@https://github.com/sygnalgroup/seamless-immutable":
+  version "7.1.5"
+  resolved "https://github.com/sygnalgroup/seamless-immutable#b56c9c3dfc6d1f5923d36a9c6b3a7ae2679fd3c0"
 
 select-hose@^2.0.0:
   version "2.0.0"
