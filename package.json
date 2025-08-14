@@ -75,7 +75,7 @@
     "redux-saga": "^1.0.5",
     "reduxsauce": "^1.1.0",
     "reselect": "^4.0.0",
-    "seamless-immutable": "^7.1.4"
+    "seamless-immutable": "https://github.com/sygnalgroup/seamless-immutable"
   },
   "keywords": [
     "redux",
